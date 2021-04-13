@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 
 import styles from '../Yamde.module.scss'
 import { buttonsDictionary } from '../utils/dictionary'
-import { buttonsActions } from '../utils/actions'
+import { toolbarButtons } from '../utils/toolbarButtons'
 
 const useMarkdownEditor = (handler, buttons, textEditor) => {
   const [view, setView] = useState('editor')
@@ -48,7 +48,7 @@ const useMarkdownEditor = (handler, buttons, textEditor) => {
   }
 
   function handleClick(id) {
-    const { openingTag, closingTag } = buttonsActions[id]
+    const { openingTag, closingTag } = toolbarButtons[id]
     wrapText(id, openingTag, closingTag)
   }
 

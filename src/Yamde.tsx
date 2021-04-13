@@ -13,9 +13,9 @@ const converter = new Showdown.Converter({
 })
 
 const Yamde = ({ value, handler, buttons = 'default' }) => {
-  const textEditor = useRef(textEditor)
+  const textEditorRef = useRef(null)
   const htmlPreview = converter.makeHtml(value)
-  const { view, handleView, handleChange, toolbar } = useMarkdownEditor(handler, buttons, textEditor)
+  const { view, handleView, handleChange, toolbar } = useMarkdownEditor(handler, buttons, textEditorRef)
 
   return (
     <div className={styles['yamde']}>
@@ -32,13 +32,12 @@ const Yamde = ({ value, handler, buttons = 'default' }) => {
       </div>
       {view === 'editor' ? (
         <textarea
-          type="text"
-          rows="12"
+          rows={12}
           name="description"
           value={value}
           onChange={(event) => handleChange(event)}
           required
-          ref={textEditor}
+          ref={textEditorRef}
         />
       ) : (
         <div className={styles['preview-area']} dangerouslySetInnerHTML={{ __html: htmlPreview }}></div>
