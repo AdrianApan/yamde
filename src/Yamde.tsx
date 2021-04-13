@@ -1,8 +1,13 @@
-import { useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import Showdown from 'showdown'
 
-import styles from './Yamde.module.scss'
-import useMarkdownEditor from './hooks/useYamde'
+import { useStyles } from './Yamde.styles'
+
+interface Props {
+  value: string
+  handler: (param: string) => void
+  buttons: string
+}
 
 const converter = new Showdown.Converter({
   tables: true,
@@ -12,35 +17,45 @@ const converter = new Showdown.Converter({
   noHeaderId: true,
 })
 
-const Yamde = ({ value, handler, buttons = 'default' }) => {
-  const textEditorRef = useRef(null)
+const Yamde = ({ value, handler, buttons = 'default' }: Props) => {
+  const textEditor = useRef(null)
+  const [isPreviewMode, setisPreviewMode] = useState(false)
   const htmlPreview = converter.makeHtml(value)
-  const { view, handleView, handleChange, toolbar } = useMarkdownEditor(handler, buttons, textEditorRef)
+  const classes = useStyles()
+
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    handler(e.target.value)
+  }
 
   return (
-    <div className={styles['yamde']}>
-      <div className={styles.toolbar}>
-        {toolbar}
-        <div className={styles['view-switch']}>
-          <div className={[styles['view-btn'], view === 'editor' && styles['active']].join(' ')} onClick={handleView}>
+    <div className={classes.yamde}>
+      <div className={classes.toolbar}>
+        <div className={classes.viewSwitch}>
+          <div
+            className={`${classes.viewButton} ${!isPreviewMode ? classes.activeView : ''}`}
+            onClick={() => setisPreviewMode(false)}
+          >
             Editor
           </div>
-          <div className={[styles['view-btn'], view === 'preview' && styles['active']].join(' ')} onClick={handleView}>
+          <div
+            className={`${classes.viewButton} ${isPreviewMode ? classes.activeView : ''}`}
+            onClick={() => setisPreviewMode(true)}
+          >
             Preview
           </div>
         </div>
       </div>
-      {view === 'editor' ? (
+      {!isPreviewMode ? (
         <textarea
           rows={12}
-          name="description"
+          name="yamdeContent"
           value={value}
-          onChange={(event) => handleChange(event)}
+          onChange={(e) => handleChange(e)}
           required
-          ref={textEditorRef}
+          ref={textEditor}
         />
       ) : (
-        <div className={styles['preview-area']} dangerouslySetInnerHTML={{ __html: htmlPreview }}></div>
+        <div className={classes.preview} dangerouslySetInnerHTML={{ __html: htmlPreview }}></div>
       )}
     </div>
   )
