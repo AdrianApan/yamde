@@ -11,7 +11,7 @@
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
     "test": "jest --config jestconfig.json",
-    "prepublish": "npm test && npm run lint",
+    "prepublishOnly": "npm test && npm run lint",
     "build": "tsc"
   },
   "repository": {
@@ -42,7 +42,8 @@
     "typescript-plugin-css-modules": "^3.2.0"
   },
   "dependencies": {
-    "react": "^17.0.2",
+    "react": "^16.14.0",
+    "react-jss": "^10.6.0",
     "showdown": "^1.9.1"
   }
 }

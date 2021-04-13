@@ -5,7 +5,7 @@
     "declaration": true,
     "outDir": "./dist",
     "strict": true,
-    "jsx": "react-jsx",
+    "jsx": "react",
     "esModuleInterop": true,
     "baseUrl": "src",
     "plugins": [{ "name": "typescript-plugin-css-modules" }]
