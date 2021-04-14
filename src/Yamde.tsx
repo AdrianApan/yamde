@@ -6,7 +6,7 @@ import { useStyles } from './Yamde.styles'
 interface Props {
   value: string
   handler: (param: string) => void
-  buttons: string
+  buttons?: string
 }
 
 const converter = new Showdown.Converter({
