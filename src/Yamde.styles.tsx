@@ -1,6 +1,18 @@
 import { createUseStyles } from 'react-jss'
 
-export const useStyles = createUseStyles({
+interface Theme extends Jss.Theme {
+  buttonBackgroundColor: string
+  buttonBorderColor: string
+  buttonColorHover: string
+  buttonBackgroundColorHover: string
+  buttonColorView: string
+  buttonColorActiveView: string
+  buttonBackgroundColorActiveView: string
+  buttonBorderColorActiveView: string
+  buttonColor: string
+}
+
+export const useStyles = createUseStyles((theme: Theme) => ({
   yamde: {
     margin: '16px 0',
     width: '100%',
@@ -20,17 +32,17 @@ export const useStyles = createUseStyles({
   viewButton: {
     cursor: 'pointer',
     fontSize: '14px',
-    backgroundColor: 'whitesmoke',
+    backgroundColor: theme.buttonBackgroundColor,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    border: '1px solid #dddddd',
+    border: `1px solid ${theme.buttonBorderColor}`,
     transition: 'background-color 0.2s ease',
     fontWeight: 400,
     padding: '0 10px',
     width: '65px',
     height: '35px',
-    color: '#a0a0a0',
+    color: theme.buttonColorView,
     zIndex: 1,
     fontFamily: 'Helvetica, Arial, sans-serif',
 
@@ -39,18 +51,18 @@ export const useStyles = createUseStyles({
     },
 
     '&:hover': {
-      color: '#333',
-      backgroundColor: '#dcdcdc',
+      color: theme.buttonColorHover,
+      backgroundColor: theme.buttonBackgroundColorHover,
       transition: 'background-color 0.2s ease',
     },
   },
   activeView: {
-    borderBottom: '1px solid #fff',
-    color: '#333',
-    backgroundColor: '#fff',
+    borderBottom: `1px solid ${theme.buttonBorderColorActiveView}`,
+    color: theme.buttonColorActiveView,
+    backgroundColor: theme.buttonBackgroundColorActiveView,
 
     '&:hover': {
-      backgroundColor: '#fff',
+      backgroundColor: theme.buttonBackgroundColorActiveView,
     },
   },
   contentArea: {
@@ -168,4 +180,4 @@ export const useStyles = createUseStyles({
       height: '16px',
     },
   },
-})
+}))
