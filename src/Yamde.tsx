@@ -1,23 +1,11 @@
 import React, { useState, useRef } from 'react'
 import Showdown from 'showdown'
 
+import Props from './types/Props'
+import ActionButton from './types/ActionButton'
+
 import { useStyles } from './Yamde.styles'
 import { toolbarActions } from './utils/toolbarActions'
-
-interface Props {
-  value: string
-  handler: (param: string) => void
-}
-
-interface ActionButtonSchema {
-  openingTag: string
-  closingTag: string
-}
-
-interface ActionButton {
-  name: string
-  schema: ActionButtonSchema
-}
 
 const converter = new Showdown.Converter({
   tables: true,
@@ -27,7 +15,7 @@ const converter = new Showdown.Converter({
   noHeaderId: true,
 })
 
-const Yamde = ({ value, handler }: Props) => {
+const Yamde = ({ value, handler }: Omit<Props, 'theme'>) => {
   const [isPreviewMode, setisPreviewMode] = useState(false)
   const textEditor = useRef<HTMLTextAreaElement>(null)
   const classes = useStyles()
