@@ -1,18 +1,8 @@
 import { createUseStyles } from 'react-jss'
 
-interface Theme extends Jss.Theme {
-  buttonBackgroundColor: string
-  buttonBorderColor: string
-  buttonColorHover: string
-  buttonBackgroundColorHover: string
-  buttonColorView: string
-  buttonColorActiveView: string
-  buttonBackgroundColorActiveView: string
-  buttonBorderColorActiveView: string
-  buttonColor: string
-}
+import ThemeVariables from './types/ThemeVariables'
 
-export const useStyles = createUseStyles((theme: Theme) => ({
+export const useStyles = createUseStyles((theme: ThemeVariables) => ({
   yamde: {
     margin: '16px 0',
     width: '100%',
@@ -32,17 +22,17 @@ export const useStyles = createUseStyles((theme: Theme) => ({
   viewButton: {
     cursor: 'pointer',
     fontSize: '14px',
-    backgroundColor: theme.buttonBackgroundColor,
+    backgroundColor: theme.switchButtonBackgroundColor,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    border: `1px solid ${theme.buttonBorderColor}`,
+    border: `1px solid ${theme.switchButtonBorderColor}`,
     transition: 'background-color 0.2s ease',
     fontWeight: 400,
     padding: '0 10px',
     width: '65px',
     height: '35px',
-    color: theme.buttonColorView,
+    color: theme.switchButtonColorView,
     zIndex: 1,
     fontFamily: 'Helvetica, Arial, sans-serif',
 
@@ -51,18 +41,18 @@ export const useStyles = createUseStyles((theme: Theme) => ({
     },
 
     '&:hover': {
-      color: theme.buttonColorHover,
-      backgroundColor: theme.buttonBackgroundColorHover,
+      color: theme.switchButtonColorHover,
+      backgroundColor: theme.switchButtonBackgroundColorHover,
       transition: 'background-color 0.2s ease',
     },
   },
   activeView: {
-    borderBottom: `1px solid ${theme.buttonBorderColorActiveView}`,
-    color: theme.buttonColorActiveView,
-    backgroundColor: theme.buttonBackgroundColorActiveView,
+    borderBottom: `1px solid ${theme.switchButtonBorderColorActiveView}`,
+    color: theme.switchButtonColorActiveView,
+    backgroundColor: theme.switchButtonBackgroundColorActiveView,
 
     '&:hover': {
-      backgroundColor: theme.buttonBackgroundColorActiveView,
+      backgroundColor: theme.switchButtonBackgroundColorActiveView,
     },
   },
   contentArea: {
@@ -70,20 +60,20 @@ export const useStyles = createUseStyles((theme: Theme) => ({
 
     '& > textarea': {
       borderRadius: 0,
-      border: '1px solid #ddd',
+      border: `1px solid ${theme.textAreaBorderColor}`,
       width: 'calc(100% - 34px)',
       padding: '16px',
       resize: 'none',
 
       '&:active, &:focus': {
-        border: '1px solid #ddd',
+        border: `1px solid ${theme.textAreaBorderColor}`,
         outline: 'none',
       },
     },
   },
   preview: {
     background: '#fff',
-    border: '1px solid #ddd',
+    border: `1px solid ${theme.previewAreaBorderColor}`,
     width: 'calc(100% - 34px)',
     padding: '16px',
     minHeight: '50px',
@@ -92,7 +82,7 @@ export const useStyles = createUseStyles((theme: Theme) => ({
     fontFamily: 'Helvetica, Arial, sans-serif',
 
     '& > p': {
-      color: '#333 !important',
+      color: `${theme.textColor} !important`,
       fontFamily: 'inherit',
       textAlign: 'left',
       fontSize: '16px',
@@ -108,25 +98,26 @@ export const useStyles = createUseStyles((theme: Theme) => ({
     '& code': {
       fontFamily: 'source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace',
       fontSize: '12px',
-      background: '#ececec',
+      background: theme.codeBlockBackgroundColor,
       padding: '4px 8px',
     },
 
     '& pre': {
       width: 'auto',
-      background: '#ececec',
+      background: theme.codeBlockBackgroundColor,
       padding: '4px 8px',
     },
 
     '& > h1, & > h2, & > h3, & > h4, & > h5, & > h6': {
-      color: '#333 !important',
+      color: `${theme.textColor} !important`,
       fontFamily: 'inherit',
       textAlign: 'left',
     },
 
-    '& > a': {
-      textDecoration: 'underline',
+    '& a': {
+      textDecoration: 'underline !important',
       fontFamily: 'inherit',
+      color: `${theme.linkColor} !important`,
     },
 
     '& > blockquote': {
@@ -137,11 +128,11 @@ export const useStyles = createUseStyles((theme: Theme) => ({
       marginInlineStart: 0,
       marginInlineEnd: 0,
       fontStyle: 'italic',
-      borderLeft: '5px solid #b9b9b9',
+      borderLeft: `5px solid ${theme.quoteAdornmentColor}`,
       fontSize: '1.15em',
 
       '& > p': {
-        color: '#333 !important',
+        color: `${theme.textColor} !important`,
       },
     },
 
@@ -149,14 +140,14 @@ export const useStyles = createUseStyles((theme: Theme) => ({
       borderCollapse: 'collapse',
 
       '& th, & td': {
-        border: '1px solid #ddd',
+        border: `1px solid ${theme.tableBorderColor}`,
         padding: '4px',
       },
     },
   },
   button: {
     cursor: 'pointer',
-    backgroundColor: '#fff',
+    backgroundColor: theme.buttonBackgroundColor,
     fontSize: '13px',
     fontFamily: 'Courier, Helvetica, Arial, sans-serif',
     fontWeight: 400,
@@ -165,13 +156,13 @@ export const useStyles = createUseStyles((theme: Theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    border: '1px solid #ddd',
+    border: `1px solid ${theme.buttonBorderColor}`,
     transition: 'background-color 0.2s ease',
     marginRight: '-1px',
-    color: '#212121',
+    color: theme.buttonColor,
 
     '&:hover': {
-      backgroundColor: '#dcdcdc',
+      backgroundColor: theme.buttonBackgroundColorHover,
       transition: 'background-color 0.2s ease',
     },
 
