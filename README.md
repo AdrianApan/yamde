@@ -39,6 +39,11 @@ This can be controlled via the `theme` prop (defaults to `light` if non specifie
   <Yamde value={text} handler={setText} theme="light">
 ```
 
+![CleanShot 2021-04-15 at 00 26 39](https://user-images.githubusercontent.com/69169115/114793141-a6d12b00-9d81-11eb-9005-828d5ed6c931.gif)
+
 ```jsx
   <Yamde value={text} handler={setText} theme="dark">
 ```
+
+![CleanShot 2021-04-15 at 00 28 50](https://user-images.githubusercontent.com/69169115/114793167-b5b7dd80-9d81-11eb-9ca9-c8c2a90e27c0.gif)
+
