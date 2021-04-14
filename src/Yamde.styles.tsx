@@ -8,13 +8,12 @@ export const useStyles = createUseStyles({
     '& > textarea': {
       borderRadius: 0,
       border: '1px solid #ddd',
-      marginTop: '-1px',
-      width: '100%',
-      display: 'table',
-      padding: '0.85em',
+      width: 'calc(100% - 34px)',
+      padding: '16px',
+      resize: 'none',
 
       '&:active, &:focus': {
-        border: '1px solid #fff',
+        border: '1px solid #ddd',
         outline: 'none',
       },
     },
@@ -31,7 +30,7 @@ export const useStyles = createUseStyles({
   },
   viewButton: {
     cursor: 'pointer',
-    fontSize: '16px',
+    fontSize: '14px',
     backgroundColor: 'whitesmoke',
     display: 'flex',
     justifyContent: 'center',
@@ -41,8 +40,9 @@ export const useStyles = createUseStyles({
     fontWeight: 400,
     padding: '0 10px',
     width: '65px',
-    height: '36px',
+    height: '35px',
     color: '#a0a0a0',
+    zIndex: 1,
     fontFamily: 'Helvetica, Arial, sans-serif',
 
     '&:first-child': {
@@ -58,11 +58,10 @@ export const useStyles = createUseStyles({
   preview: {
     background: '#fff',
     border: '1px solid #ddd',
-    width: '100%',
-    padding: '0.85em',
+    width: 'calc(100% - 34px)',
+    padding: '16px',
     minHeight: '50px',
     fontSize: '1rem',
-    marginTop: '-1px',
     fontWeight: 400,
     fontFamily: 'Helvetica, Arial, sans-serif',
 
@@ -82,16 +81,28 @@ export const useStyles = createUseStyles({
       textAlign: 'left',
     },
 
-    // '& > h1': { fontSize: '2.90em' },
-    // '& > h2': { fontSize: '2.55em' },
-    // '& > h3': { fontSize: '2.20em' },
-    // '& > h4': { fontSize: '1.85em' },
-    // '& > h5': { fontSize: '1.50em' },
-    // '& > h6': { fontSize: '1.15em' },
-
     '& > a': {
       textDecoration: 'underline',
       fontFamily: 'inherit',
+    },
+
+    '& > blockquote': {
+      padding: '2px 24px',
+      lineHeight: '1em',
+      marginBlockStart: '1em',
+      marginBlockEnd: '1em',
+      marginInlineStart: 0,
+      marginInlineEnd: 0,
+      fontStyle: 'italic',
+      borderLeft: '5px solid #b9b9b9',
+      fontSize: '1.15em',
+    },
+
+    '& > p > code': {
+      fontFamily: 'source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace',
+      fontSize: '12px',
+      background: '#ececec',
+      padding: '4px 8px',
     },
   },
   activeView: {
