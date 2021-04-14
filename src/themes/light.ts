@@ -15,10 +15,13 @@ export const lightTheme = {
   switchButtonBorderColorActiveView: '#fff',
   // Misc
   textColor: '#333',
+  contentAreaBackgroundColor: '#fff',
   textAreaBorderColor: '#ddd',
   previewAreaBorderColor: '#ddd',
   codeBlockBackgroundColor: '#ececec',
   linkColor: '#4183c4',
   quoteAdornmentColor: '#b9b9b9',
   tableBorderColor: '#ddd',
+  textAreaSelectionBackgroundColor: '#a2a2a2',
+  textAreaSelectionColor: '#000',
 }

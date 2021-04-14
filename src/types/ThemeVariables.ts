@@ -18,6 +18,9 @@ interface ThemeVariables extends Jss.Theme {
   buttonBorderColor: string
   buttonColor: string
   buttonBackgroundColorHover: string
+  contentAreaBackgroundColor: string
+  textAreaSelectionBackgroundColor: string
+  textAreaSelectionColor: string
 }
 
 export default ThemeVariables

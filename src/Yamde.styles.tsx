@@ -64,6 +64,13 @@ export const useStyles = createUseStyles((theme: ThemeVariables) => ({
       width: 'calc(100% - 34px)',
       padding: '16px',
       resize: 'none',
+      background: theme.contentAreaBackgroundColor,
+      color: theme.textColor,
+
+      '&::selection': {
+        backgroundColor: theme.textAreaSelectionBackgroundColor,
+        color: theme.textAreaSelectionColor,
+      },
 
       '&:active, &:focus': {
         border: `1px solid ${theme.textAreaBorderColor}`,
@@ -72,7 +79,7 @@ export const useStyles = createUseStyles((theme: ThemeVariables) => ({
     },
   },
   preview: {
-    background: '#fff',
+    background: theme.contentAreaBackgroundColor,
     border: `1px solid ${theme.previewAreaBorderColor}`,
     width: 'calc(100% - 34px)',
     padding: '16px',
@@ -142,7 +149,11 @@ export const useStyles = createUseStyles((theme: ThemeVariables) => ({
       '& th, & td': {
         border: `1px solid ${theme.tableBorderColor}`,
         padding: '4px',
+        color: theme.textColor,
       },
+    },
+    '& ul, & ol, & li': {
+      color: theme.textColor,
     },
   },
   button: {
