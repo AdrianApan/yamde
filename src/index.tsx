@@ -7,7 +7,7 @@ import Yamde from './Yamde'
 import { lightTheme } from './themes/light'
 import { darkTheme } from './themes/dark'
 
-const YamdeComp = ({ value, handler, theme }: Props) => {
+const YamdeComp = ({ value, handler, theme = 'light' }: Props) => {
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <Yamde value={value} handler={handler} />
