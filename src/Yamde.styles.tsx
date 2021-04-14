@@ -4,23 +4,10 @@ export const useStyles = createUseStyles({
   yamde: {
     margin: '16px 0',
     width: '100%',
-
-    '& > textarea': {
-      borderRadius: 0,
-      border: '1px solid #ddd',
-      width: 'calc(100% - 34px)',
-      padding: '16px',
-      resize: 'none',
-
-      '&:active, &:focus': {
-        border: '1px solid #ddd',
-        outline: 'none',
-      },
-    },
   },
   toolbar: {
     display: 'flex',
-    marginBottom: 0,
+    marginBottom: '-1px',
     maxHeight: '36px',
     width: '100%',
   },
@@ -53,6 +40,31 @@ export const useStyles = createUseStyles({
       color: '#333',
       backgroundColor: '#dcdcdc',
       transition: 'background-color 0.2s ease',
+    },
+  },
+  activeView: {
+    borderBottom: '1px solid #fff',
+    color: '#333',
+    backgroundColor: '#fff',
+
+    '&:hover': {
+      backgroundColor: '#fff',
+    },
+  },
+  contentArea: {
+    marginTop: '-1px',
+
+    '& > textarea': {
+      borderRadius: 0,
+      border: '1px solid #ddd',
+      width: 'calc(100% - 34px)',
+      padding: '16px',
+      resize: 'none',
+
+      '&:active, &:focus': {
+        border: '1px solid #ddd',
+        outline: 'none',
+      },
     },
   },
   preview: {
@@ -105,13 +117,29 @@ export const useStyles = createUseStyles({
       padding: '4px 8px',
     },
   },
-  activeView: {
-    borderBottom: '1px solid #fff',
-    color: '#333',
+  button: {
+    cursor: 'pointer',
     backgroundColor: '#fff',
+    fontSize: '13px',
+    fontFamily: 'Courier, Helvetica, Arial, sans-serif',
+    fontWeight: 400,
+    width: '34px',
+    height: '34px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    border: '1px solid #ddd',
+    transition: 'background-color 0.2s ease',
+    marginRight: '-1px',
 
     '&:hover': {
-      backgroundColor: '#fff',
+      backgroundColor: '#dcdcdc',
+      transition: 'background-color 0.2s ease',
+    },
+
+    '& > svg': {
+      width: '16px',
+      height: '16px',
     },
   },
 })
