@@ -25,6 +25,20 @@ import Yamde from 'yamde'
 export const App = () => {
   const [text, setText] = useState('')
 
-  return <Yamde value={text} handler={setText}>
+  return <Yamde value={text} handler={setText} theme="light">
 }
+```
+
+### 🎨 Themes
+
+There are two available themes: `light` and `dark`.
+
+This can be controlled via the `theme` prop (defaults to `light` if non specified).
+
+```jsx
+  <Yamde value={text} handler={setText} theme="light">
+```
+
+```jsx
+  <Yamde value={text} handler={setText} theme="dark">
 ```
