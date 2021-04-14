@@ -7,12 +7,16 @@ import { toolbarActions } from './utils/toolbarActions'
 interface Props {
   value: string
   handler: (param: string) => void
-  buttons?: any[]
 }
 
 interface ActionButtonSchema {
   openingTag: string
   closingTag: string
+}
+
+interface ActionButton {
+  name: string
+  schema: ActionButtonSchema
 }
 
 const converter = new Showdown.Converter({
@@ -25,7 +29,7 @@ const converter = new Showdown.Converter({
 
 const Yamde = ({ value, handler }: Props) => {
   const [isPreviewMode, setisPreviewMode] = useState(false)
-  const textEditor = useRef(null)
+  const textEditor = useRef<HTMLTextAreaElement>(null)
   const classes = useStyles()
   const htmlPreview = converter.makeHtml(value)
 
@@ -33,8 +37,43 @@ const Yamde = ({ value, handler }: Props) => {
     handler(e.target.value)
   }
 
-  const handleClick = ({ openingTag, closingTag }: ActionButtonSchema) =>
-    console.log(openingTag, closingTag)
+  const handleClick = ({ name, schema }: ActionButton) => {
+    const { openingTag, closingTag } = schema
+
+    if (textEditor && textEditor.current) {
+      const { value, selectionStart, selectionEnd } = textEditor.current
+      const len = value.length
+      const selectedText = textEditor.current.value.substring(selectionStart, selectionEnd)
+      const regex = /[^\n]+/g
+      const list = selectedText.match(regex)
+      let fullReplacement = ''
+
+      const formatText = (list: string[], name: string, openingTag: string, closingTag: string) => {
+        let string = ''
+        list.forEach((item: string, i: number) => {
+          if (name === 'olist') {
+            string += `${i + 1}. ${item}${closingTag}\n`
+          } else {
+            string += `${openingTag}${item}${closingTag}\n`
+          }
+        })
+        return string
+      }
+
+      if (list && list.length > 0 && (name === 'olist' || name === 'ulist')) {
+        fullReplacement =
+          value.substring(0, selectionStart) +
+          formatText(list, name, openingTag, closingTag) +
+          value.substring(selectionEnd, len)
+      } else {
+        const replacement = `${openingTag}${selectedText}${closingTag}`
+        fullReplacement =
+          value.substring(0, selectionStart) + replacement + value.substring(selectionEnd, len)
+      }
+
+      handler(fullReplacement)
+    }
+  }
 
   return (
     <div className={classes.yamde}>
@@ -44,8 +83,7 @@ const Yamde = ({ value, handler }: Props) => {
             <div
               key={name}
               className={classes.button}
-              id={name}
-              onClick={() => handleClick(schema)}
+              onClick={() => handleClick({ name, schema })}
             >
               {icon}
             </div>
