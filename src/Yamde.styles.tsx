@@ -4,6 +4,7 @@ export const useStyles = createUseStyles({
   yamde: {
     margin: '16px 0',
     width: '100%',
+    boxSizing: 'initial',
   },
   toolbar: {
     display: 'flex',
@@ -14,6 +15,7 @@ export const useStyles = createUseStyles({
   viewSwitch: {
     marginLeft: 'auto',
     display: 'flex',
+    marginTop: '-1px',
   },
   viewButton: {
     cursor: 'pointer',
@@ -85,6 +87,23 @@ export const useStyles = createUseStyles({
       fontWeight: 400,
       marginBottom: '1rem',
       marginTop: 0,
+
+      '& > img': {
+        maxWidth: '100%',
+      },
+    },
+
+    '& code': {
+      fontFamily: 'source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace',
+      fontSize: '12px',
+      background: '#ececec',
+      padding: '4px 8px',
+    },
+
+    '& pre': {
+      width: 'auto',
+      background: '#ececec',
+      padding: '4px 8px',
     },
 
     '& > h1, & > h2, & > h3, & > h4, & > h5, & > h6': {
@@ -99,7 +118,7 @@ export const useStyles = createUseStyles({
     },
 
     '& > blockquote': {
-      padding: '2px 24px',
+      padding: '8px 24px',
       lineHeight: '1em',
       marginBlockStart: '1em',
       marginBlockEnd: '1em',
@@ -108,13 +127,19 @@ export const useStyles = createUseStyles({
       fontStyle: 'italic',
       borderLeft: '5px solid #b9b9b9',
       fontSize: '1.15em',
+
+      '& > p': {
+        color: '#333 !important',
+      },
     },
 
-    '& > p > code': {
-      fontFamily: 'source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace',
-      fontSize: '12px',
-      background: '#ececec',
-      padding: '4px 8px',
+    '& > table': {
+      borderCollapse: 'collapse',
+
+      '& th, & td': {
+        border: '1px solid #ddd',
+        padding: '4px',
+      },
     },
   },
   button: {
@@ -131,6 +156,7 @@ export const useStyles = createUseStyles({
     border: '1px solid #ddd',
     transition: 'background-color 0.2s ease',
     marginRight: '-1px',
+    color: '#212121',
 
     '&:hover': {
       backgroundColor: '#dcdcdc',
