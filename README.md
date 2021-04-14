@@ -1,5 +1,7 @@
 ## YAMDE
 
+![yamde_logo_light](https://user-images.githubusercontent.com/69169115/114769765-86de3f00-9d62-11eb-9b28-c691f62f0e86.png)
+
 Y.A.M.D.E - yet another markdown editor.
 
 ### 🌱 Features
