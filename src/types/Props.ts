@@ -3,7 +3,7 @@ import Theme from './Theme'
 interface Props {
   value: string
   handler: (param: string) => void
-  theme: Theme
+  theme?: Theme
 }
 
 export default Props
