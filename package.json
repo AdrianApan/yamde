@@ -28,7 +28,7 @@
   "bugs": {
     "url": "https://github.com/AdrianApan/yamde/issues"
   },
-  "homepage": "https://github.com/AdrianApan/yamde#readme",
+  "homepage": "https://github.com/AdrianApan/yamde",
   "devDependencies": {
     "@types/jest": "^26.0.22",
     "@types/react": "^17.0.3",
