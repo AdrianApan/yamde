@@ -10,7 +10,7 @@
   "scripts": {
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
-    "test": "jest --config jestconfig.json",
+    "test": "jest --config jestconfig.json --passWithNoTests",
     "prepublishOnly": "npm test && npm run lint",
     "build": "tsc"
   },
