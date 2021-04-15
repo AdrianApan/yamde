@@ -29,34 +29,41 @@ const Yamde = ({ value, handler }: Omit<Props, 'theme'>) => {
     const { openingTag, closingTag } = schema
 
     if (textEditor && textEditor.current) {
-      const { value, selectionStart, selectionEnd } = textEditor.current
-      const len = value.length
+      const { value: editorValue, selectionStart, selectionEnd } = textEditor.current
+      const len = editorValue.length
       const selectedText = textEditor.current.value.substring(selectionStart, selectionEnd)
       const regex = /[^\n]+/g
       const list = selectedText.match(regex)
       let fullReplacement = ''
 
-      const formatText = (list: string[], name: string, openingTag: string, closingTag: string) => {
-        let string = ''
-        list.forEach((item: string, i: number) => {
-          if (name === 'olist') {
-            string += `${i + 1}. ${item}${closingTag}\n`
+      const formatText = (
+        selectionList: string[],
+        actionName: string,
+        actionOpeningTag: string,
+        actionClosingTag: string,
+      ) => {
+        let newString = ''
+        selectionList.forEach((item: string, i: number) => {
+          if (actionName === 'olist') {
+            newString += `${i + 1}. ${item}${closingTag}\n`
           } else {
-            string += `${openingTag}${item}${closingTag}\n`
+            newString += `${actionOpeningTag}${item}${actionClosingTag}\n`
           }
         })
-        return string
+        return newString
       }
 
       if (list && list.length > 0 && (name === 'olist' || name === 'ulist')) {
         fullReplacement =
-          value.substring(0, selectionStart) +
+          editorValue.substring(0, selectionStart) +
           formatText(list, name, openingTag, closingTag) +
-          value.substring(selectionEnd, len)
+          editorValue.substring(selectionEnd, len)
       } else {
         const replacement = `${openingTag}${selectedText}${closingTag}`
         fullReplacement =
-          value.substring(0, selectionStart) + replacement + value.substring(selectionEnd, len)
+          editorValue.substring(0, selectionStart) +
+          replacement +
+          editorValue.substring(selectionEnd, len)
       }
 
       handler(fullReplacement)
