@@ -4,6 +4,8 @@
 
 Y.A.M.D.E - yet another markdown editor.
 
+**Demo:** [View on Codesandbox.io](https://codesandbox.io/s/modest-framework-6zmgb?file=/src/App.js)
+
 ### 🌱 Features
 
 - Responsive
