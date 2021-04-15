@@ -66,17 +66,19 @@ const Yamde = ({ value, handler }: Omit<Props, 'theme'>) => {
   return (
     <div className={classes.yamde}>
       <div className={classes.toolbar}>
-        {toolbarActions.map(({ name, icon, schema }) => {
-          return (
-            <div
-              key={name}
-              className={classes.button}
-              onClick={() => handleClick({ name, schema })}
-            >
-              {icon}
-            </div>
-          )
-        })}
+        <div className={classes.buttons}>
+          {toolbarActions.map(({ name, icon, schema }) => {
+            return (
+              <div
+                key={name}
+                className={classes.button}
+                onClick={() => handleClick({ name, schema })}
+              >
+                {icon}
+              </div>
+            )
+          })}
+        </div>
         <div className={classes.viewSwitch}>
           <div
             className={`${classes.viewButton} ${!isPreviewMode ? classes.activeView : ''}`}
@@ -105,6 +107,19 @@ const Yamde = ({ value, handler }: Omit<Props, 'theme'>) => {
         ) : (
           <div className={classes.preview} dangerouslySetInnerHTML={{ __html: htmlPreview }}></div>
         )}
+      </div>
+      <div className={classes.mobileButton}>
+        {toolbarActions.map(({ name, icon, schema }) => {
+          return (
+            <div
+              key={name}
+              className={classes.button}
+              onClick={() => handleClick({ name, schema })}
+            >
+              {icon}
+            </div>
+          )
+        })}
       </div>
     </div>
   )

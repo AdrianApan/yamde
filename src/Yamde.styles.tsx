@@ -7,12 +7,32 @@ export const useStyles = createUseStyles((theme: ThemeVariables) => ({
     margin: '16px 0',
     width: '100%',
     boxSizing: 'initial',
+
+    '@media screen and (max-width: 767px)': {
+      overflow: 'hidden',
+    },
   },
   toolbar: {
     display: 'flex',
     marginBottom: '-1px',
     maxHeight: '36px',
     width: '100%',
+  },
+  buttons: {
+    display: 'flex',
+
+    '@media screen and (max-width: 767px)': {
+      display: 'none',
+    },
+  },
+  mobileButton: {
+    display: 'none',
+
+    '@media screen and (max-width: 767px)': {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fill, minmax(34px, 1fr))',
+      marginTop: '-1px',
+    },
   },
   viewSwitch: {
     marginLeft: 'auto',
@@ -57,6 +77,7 @@ export const useStyles = createUseStyles((theme: ThemeVariables) => ({
   },
   contentArea: {
     marginTop: '-1px',
+    display: 'flex',
 
     '& > textarea': {
       borderRadius: 0,
