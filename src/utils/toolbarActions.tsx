@@ -1,6 +1,6 @@
 import React from 'react'
 import { FiImage } from 'react-icons/fi'
-import { MdFormatQuote, MdCode, MdBluetoothSearching } from 'react-icons/md'
+import { MdFormatQuote, MdCode } from 'react-icons/md'
 import {
   AiOutlineBold,
   AiOutlineItalic,

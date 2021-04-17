@@ -1,6 +1,6 @@
 {
   "name": "yamde",
-  "version": "1.0.2",
+  "version": "1.2.2",
   "description": "Yet another markdown editor.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
