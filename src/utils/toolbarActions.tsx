@@ -1,19 +1,20 @@
 import React from 'react'
-import { FiImage } from '@react-icons/all-files/fi/FiImage'
-import { MdFormatQuote } from '@react-icons/all-files/md/MdFormatQuote'
-import { MdCode } from '@react-icons/all-files/md/MdCode'
-import { AiOutlineBold } from '@react-icons/all-files/ai/AiOutlineBold'
-import { AiOutlineItalic } from '@react-icons/all-files/ai/AiOutlineItalic'
-import { AiOutlineStrikethrough } from '@react-icons/all-files/ai/AiOutlineStrikethrough'
-import { AiOutlineUnorderedList } from '@react-icons/all-files/ai/AiOutlineUnorderedList'
-import { AiOutlineOrderedList } from '@react-icons/all-files/ai/AiOutlineOrderedList'
-import { AiOutlineTable } from '@react-icons/all-files/ai/AiOutlineTable'
-import { AiOutlineLink } from '@react-icons/all-files/ai/AiOutlineLink'
+
+import BoldOutlined from '@ant-design/icons/BoldOutlined'
+import ItalicOutlined from '@ant-design/icons/ItalicOutlined'
+import StrikethroughOutlined from '@ant-design/icons/StrikethroughOutlined'
+import UnorderedListOutlined from '@ant-design/icons/UnorderedListOutlined'
+import OrderedListOutlined from '@ant-design/icons/OrderedListOutlined'
+import TableOutlined from '@ant-design/icons/TableOutlined'
+import FileImageOutlined from '@ant-design/icons/FileImageOutlined'
+import LinkOutlined from '@ant-design/icons/LinkOutlined'
+import RightOutlined from '@ant-design/icons/RightOutlined'
+import CodeOutlined from '@ant-design/icons/CodeOutlined'
 
 export const toolbarActions = [
   {
     name: 'bold',
-    icon: <AiOutlineBold />,
+    icon: <BoldOutlined />,
     schema: {
       openingTag: '**',
       closingTag: '**',
@@ -21,7 +22,7 @@ export const toolbarActions = [
   },
   {
     name: 'italic',
-    icon: <AiOutlineItalic />,
+    icon: <ItalicOutlined />,
     schema: {
       openingTag: '*',
       closingTag: '*',
@@ -29,7 +30,7 @@ export const toolbarActions = [
   },
   {
     name: 'strikethrough',
-    icon: <AiOutlineStrikethrough />,
+    icon: <StrikethroughOutlined />,
     schema: {
       openingTag: '~~',
       closingTag: '~~',
@@ -61,7 +62,7 @@ export const toolbarActions = [
   },
   {
     name: 'ulist',
-    icon: <AiOutlineUnorderedList />,
+    icon: <UnorderedListOutlined />,
     schema: {
       openingTag: '- ',
       closingTag: '',
@@ -69,7 +70,7 @@ export const toolbarActions = [
   },
   {
     name: 'olist',
-    icon: <AiOutlineOrderedList />,
+    icon: <OrderedListOutlined />,
     schema: {
       openingTag: '1. ',
       closingTag: '',
@@ -77,7 +78,7 @@ export const toolbarActions = [
   },
   {
     name: 'table',
-    icon: <AiOutlineTable />,
+    icon: <TableOutlined />,
     schema: {
       openingTag:
         'Column 1 | Column 2 | Column 3\n---|:---:|---:\nLeft | Center | Right\n1 | 2 | 3\n4 | 5 | 6',
@@ -86,7 +87,7 @@ export const toolbarActions = [
   },
   {
     name: 'image',
-    icon: <FiImage />,
+    icon: <FileImageOutlined />,
     schema: {
       openingTag: '![',
       closingTag: '](https://example.com/image.png)',
@@ -94,7 +95,7 @@ export const toolbarActions = [
   },
   {
     name: 'link',
-    icon: <AiOutlineLink />,
+    icon: <LinkOutlined />,
     schema: {
       openingTag: '[',
       closingTag: '](https://www.example.com)',
@@ -102,7 +103,7 @@ export const toolbarActions = [
   },
   {
     name: 'quote',
-    icon: <MdFormatQuote />,
+    icon: <RightOutlined />,
     schema: {
       openingTag: '> ',
       closingTag: '',
@@ -110,7 +111,7 @@ export const toolbarActions = [
   },
   {
     name: 'code',
-    icon: <MdCode />,
+    icon: <CodeOutlined />,
     schema: {
       openingTag: '`',
       closingTag: '`',

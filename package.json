@@ -45,8 +45,7 @@
     "react": "^16.14.0"
   },
   "dependencies": {
-    "@react-icons/all-files": "^4.1.0",
-    "react-icons": "^4.2.0",
+    "@ant-design/icons": "^4.6.2",
     "react-jss": "^10.6.0",
     "showdown": "^1.9.1"
   }
