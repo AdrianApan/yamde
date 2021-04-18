@@ -1,15 +1,14 @@
 import React from 'react'
-import { FiImage } from 'react-icons/fi'
-import { MdFormatQuote, MdCode } from 'react-icons/md'
-import {
-  AiOutlineBold,
-  AiOutlineItalic,
-  AiOutlineStrikethrough,
-  AiOutlineUnorderedList,
-  AiOutlineOrderedList,
-  AiOutlineTable,
-  AiOutlineLink,
-} from 'react-icons/ai'
+import { FiImage } from '@react-icons/all-files/fi/FiImage'
+import { MdFormatQuote } from '@react-icons/all-files/md/MdFormatQuote'
+import { MdCode } from '@react-icons/all-files/md/MdCode'
+import { AiOutlineBold } from '@react-icons/all-files/ai/AiOutlineBold'
+import { AiOutlineItalic } from '@react-icons/all-files/ai/AiOutlineItalic'
+import { AiOutlineStrikethrough } from '@react-icons/all-files/ai/AiOutlineStrikethrough'
+import { AiOutlineUnorderedList } from '@react-icons/all-files/ai/AiOutlineUnorderedList'
+import { AiOutlineOrderedList } from '@react-icons/all-files/ai/AiOutlineOrderedList'
+import { AiOutlineTable } from '@react-icons/all-files/ai/AiOutlineTable'
+import { AiOutlineLink } from '@react-icons/all-files/ai/AiOutlineLink'
 
 export const toolbarActions = [
   {
