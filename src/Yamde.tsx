@@ -118,17 +118,19 @@ const Yamde = ({ value, handler, toolbar }: Omit<Props, 'theme'>) => {
         )}
       </div>
       <div className={classes.mobileButton}>
-        {toolbarActions.map(({ name, icon, schema }) => {
-          return (
-            <div
-              key={name}
-              className={classes.button}
-              onClick={() => handleClick({ name, schema })}
-            >
-              {icon}
-            </div>
-          )
-        })}
+        {toolbarActions
+          .filter((action) => toolbar?.includes(action.name))
+          .map(({ name, icon, schema }) => {
+            return (
+              <div
+                key={name}
+                className={classes.button}
+                onClick={() => handleClick({ name, schema })}
+              >
+                {icon}
+              </div>
+            )
+          })}
       </div>
     </div>
   )
