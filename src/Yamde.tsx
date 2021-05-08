@@ -15,7 +15,7 @@ const converter = new Showdown.Converter({
   noHeaderId: true,
 })
 
-const Yamde = ({ value, handler }: Omit<Props, 'theme'>) => {
+const Yamde = ({ value, handler, toolbar }: Omit<Props, 'theme'>) => {
   const [isPreviewMode, setisPreviewMode] = useState(false)
   const textEditor = useRef<HTMLTextAreaElement>(null)
   const classes = useStyles()
@@ -74,17 +74,19 @@ const Yamde = ({ value, handler }: Omit<Props, 'theme'>) => {
     <div className={classes.yamde}>
       <div className={classes.toolbar}>
         <div className={classes.buttons}>
-          {toolbarActions.map(({ name, icon, schema }) => {
-            return (
-              <div
-                key={name}
-                className={classes.button}
-                onClick={() => handleClick({ name, schema })}
-              >
-                {icon}
-              </div>
-            )
-          })}
+          {toolbarActions
+            .filter((action) => toolbar?.includes(action.name))
+            .map(({ name, icon, schema }) => {
+              return (
+                <div
+                  key={name}
+                  className={classes.button}
+                  onClick={() => handleClick({ name, schema })}
+                >
+                  {icon}
+                </div>
+              )
+            })}
         </div>
         <div className={classes.viewSwitch}>
           <div

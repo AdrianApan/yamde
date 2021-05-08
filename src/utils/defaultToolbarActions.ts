@@ -1,0 +1,16 @@
+export const defaultToolbarAction = [
+  'bold',
+  'italic',
+  'strikethrough',
+  'heading1',
+  'heading2',
+  'heading3',
+  'ulist',
+  'olist',
+  'table',
+  'image',
+  'link',
+  'quote',
+  'code',
+  'hr',
+]
