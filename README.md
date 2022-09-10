@@ -91,3 +91,12 @@ Available actions:
 | `quote`         | Blockquote markdown    |
 | `code`          | Code highlight         |
 | `hr`            | Horizontal rule        |
+
+
+#### `required={true}`
+
+If you use yamde in a form that uses HTML form validation, you can set `required` to `true`:
+
+```jsx
+<Yamde value={text} handler={setText} required={true} />
+```
