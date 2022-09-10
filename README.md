@@ -92,11 +92,10 @@ Available actions:
 | `code`          | Code highlight         |
 | `hr`            | Horizontal rule        |
 
+#### `required` prop
 
-#### `required={true}`
-
-If you use yamde in a form that uses HTML form validation, you can set `required` to `true`:
+If you use YAMDE in a form that uses HTML form validation, you can set the `required` prop to `true` (by default this is set to `false`):
 
 ```jsx
-<Yamde value={text} handler={setText} required={true} />
+<Yamde value={text} handler={setText} required />
 ```
