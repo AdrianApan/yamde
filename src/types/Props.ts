@@ -4,6 +4,7 @@ interface Props {
   value: string
   handler: (param: string) => void
   theme?: Theme
+  required?: boolean
   toolbar?: string[]
 }
 

@@ -15,7 +15,7 @@ const converter = new Showdown.Converter({
   noHeaderId: true,
 })
 
-const Yamde = ({ value, handler, toolbar }: Omit<Props, 'theme'>) => {
+const Yamde = ({ value, handler, toolbar, required = false }: Omit<Props, 'theme'>) => {
   const [isPreviewMode, setisPreviewMode] = useState(false)
   const textEditor = useRef<HTMLTextAreaElement>(null)
   const classes = useStyles()
@@ -110,7 +110,7 @@ const Yamde = ({ value, handler, toolbar }: Omit<Props, 'theme'>) => {
             name="yamdeContent"
             value={value}
             onChange={(e) => handleChange(e)}
-            required
+            required={required}
             ref={textEditor}
           />
         ) : (
